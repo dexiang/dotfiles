@@ -1,0 +1,33 @@
+" 啟用 Syntax Highlighting 配色功能
+syntax on
+
+
+" 顯示行號
+set nu
+
+" 自動對齊縮排
+set ai
+
+" 光標底線 高亮當前行 (水平)
+set cursorline
+
+" 高亮當前列 (垂直)
+set cursorcolumn
+
+" 縮排間隔數
+set tabstop=4
+
+" 自動縮排對齊間隔數
+set shiftwidth=4
+
+" 輸入 tab 都會被轉換成 space，而對應的 space 數量由 :set tabstop=x 決定
+set expandtab
+
+" 設定縮排的顯示符號
+set list listchars=tab:\:\ ,trail:·,extends:?,precedes:?,nbsp:×
+
+" 文字編碼 utf8
+set enc=utf8
+
+" 標記關鍵字
+set hls

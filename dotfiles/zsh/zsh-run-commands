@@ -1,0 +1,28 @@
+# Path to your oh-my-zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
+
+# 採用 nerd 字型（一定要放在套用 Theme 之前）
+POWERLEVEL9K_MODE='nerdfont-complete'
+
+# 套用 powerlevel9k Theme
+ZSH_THEME="powerlevel9k/powerlevel9k"
+
+DEFAULT_USER="Tony"
+
+# command line 左邊想顯示的內容
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir dir_writable vcs)
+
+# command line 右邊想顯示的內容
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs command_execution_time time)
+
+# 顯示執行時間
+POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=0
+
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+
+export GOPATH=$HOME/Golang
+export GOBIN=$GOPATH/bin
+export PATH=$GOPATH:$PATH
+

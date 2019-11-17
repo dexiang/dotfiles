@@ -1,0 +1,18 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"BracketHighlighter",
+		"ConvertToUTF8",
+		"Dockerfile Syntax Highlighting",
+		"HTML-CSS-JS Prettify",
+		"INI",
+		"MarkdownPreview",
+		"nginx",
+		"Package Control",
+		"SideBarEnhancements"
+	]
+}

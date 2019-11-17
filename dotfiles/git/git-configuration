@@ -1,0 +1,6 @@
+[user]
+  name = Dexiang Xu
+  email = dexiang.tony@gmail.com
+[core]
+  editor = vim
+  excludesfile = ~/.gitignore
