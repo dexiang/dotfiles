@@ -33,7 +33,7 @@ fi
 echo -e "${GREEN}===== Updating homebrew... =====${NOCOLOR}"
 brew update
 
-brew install zsh \
+brew install zsh bash \
     git \
     ansible \
     go \
@@ -95,7 +95,7 @@ ssh-keygen -q \
     -t rsa \
     -N "" \
     -C "for sourcetree" \
-    -f "$HOME"/.ssh/id_rsa_for_github_through_sourcetree
+    -f "$HOME"/.ssh/id_rsa_for_github
 
 # dotfiles
 
