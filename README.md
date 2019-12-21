@@ -4,7 +4,7 @@
 - macOS 10.15
 
 ## How To Use
-Execute `bootstrap.sh`
+Execute `bootstrap.sh` (Remember to enable execute permissions on all files)
 
 ## Components
 - macOS configuration

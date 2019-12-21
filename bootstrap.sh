@@ -8,8 +8,7 @@ NOCOLOR='\033[0m'
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 
-CURRENT_DIR=$PWD
-PROJECT_DIR=$(dirname $0)
+PROJECT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 INIT_WORKSPACE_DIR=$HOME
 WORKSPACE_DIR="$HOME/workspace"
 
