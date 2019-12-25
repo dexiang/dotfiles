@@ -51,10 +51,13 @@ defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 # Power Management
 ## 選單列中的電量顯示百分比
 defaults write com.apple.menuextra.battery ShowPercent -string "YES"
-## 使用電池時，閒置後關閉顯示器的等待時間
-sudo pmset -b displaysleep  5
-## 使用外接電源時，閒置後關閉顯示器的等待時間
-sudo pmset -c displaysleep  15
+
+if pmset -g custom | grep -q "displaysleep"; then
+    ## 使用電池時，閒置後關閉顯示器的等待時間，單位：分
+    sudo pmset -b displaysleep  5
+    ## 使用外接電源時，閒置後關閉顯示器的等待時間
+    sudo pmset -c displaysleep  15
+fi
 
 # Volume
 ## 在選單列中顯示音量

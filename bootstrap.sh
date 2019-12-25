@@ -1,16 +1,12 @@
-#!/usr/bin/env bash
-
-# https://segmentfault.com/a/1190000002713879
-
-set -e
+#! /usr/bin/env zsh
 
 NOCOLOR='\033[0m'
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 
-PROJECT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+PROJECT_DIR=$( cd "$( dirname $0 )" && pwd )
 INIT_WORKSPACE_DIR=$HOME
-WORKSPACE_DIR="$HOME/workspace"
+WORKSPACE_DIR="${HOME}/workspace"
 
 cd $INIT_WORKSPACE_DIR
 
@@ -19,11 +15,11 @@ if ! xcode-select -p &> /dev/null; then
     xcode-select --install
 fi
 
-## macOS
-(exec "${PROJECT_DIR}"/macOS/set-defaults.sh)
+## macOS settings
+(exec "${PROJECT_DIR}/macOS/set-defaults.sh")
 
 # Check for Homebrew,
-if test ! $(which brew); then
+if ! (( $+commands[brew] )); then
   echo -e "${GREEN}===== Installing homebrew... =====${NOCOLOR}"
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
@@ -73,11 +69,15 @@ brew cleanup
 
 # 把 zsh 加進 shell 清單
 # http://linux.vbird.org/linux_basic/0320bash.php#bash_shells
-sudo sh -c "echo $(which zsh) >> /etc/shells"
+if grep -q $(which zsh) /etc/shells; then
+    sudo sh -c "echo $(which zsh) >> /etc/shells"
+fi
 
 # 把 zsh 設定為你的預設 shell
 # http://linux.vbird.org/linux_basic/0410accountmanager.php#chsh
-chsh -s $(which zsh)
+if [[ $(dscl . -read ~/ UserShell | sed 's/UserShell: //') != $(which zsh) ]]; then
+    chsh -s $(which zsh)
+fi
 
 # oh-my-zsh
 if [ ! -d "$HOME"/.oh-my-zsh ]; then
@@ -120,7 +120,11 @@ SUBLIME_MIAN_FOLDER="${HOME}/Library/Application Support/Sublime Text 3"
 SUBLIME_INSTALLED_PACKAGES_FOLDER="${SUBLIME_MIAN_FOLDER}/Installed Packages"
 SUBLIME_SETTING_FOLDER="${SUBLIME_MIAN_FOLDER}/Packages/User"
 if [ ! -d "$SUBLIME_INSTALLED_PACKAGES_FOLDER" ]; then
-    mkdir "${SUBLIME_INSTALLED_PACKAGES_FOLDER}"
+    mkdir -p "${SUBLIME_INSTALLED_PACKAGES_FOLDER}"
+fi
+
+if [ ! -d "$SUBLIME_SETTING_FOLDER" ]; then
+    mkdir -p "${SUBLIME_SETTING_FOLDER}"
 fi
 cp "${PROJECT_DIR}/dotfiles/sublime/Package Control.sublime-package" "${SUBLIME_INSTALLED_PACKAGES_FOLDER}"
 # ln -f -s "${PROJECT_DIR}"/dotfiles/sublime/Package-Control.sublime-settings "${SUBLIME_SETTING_FOLDER}"/"Package Control.sublime-settings"

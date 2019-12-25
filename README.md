@@ -71,6 +71,10 @@ Execute `bootstrap.sh` (Remember to enable execute permissions on all files)
 |                           | `$ defaults delete com.apple.dock persistent-others`         |
 | Put Dock on the lfet side | `$ defaults write com.apple.dock orientation -string "left"` |
 
+## Releated
+
+- macOS Catalina use [zsh as the default](https://support.apple.com/en-us/HT208050)
+
 
 
 
