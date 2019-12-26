@@ -9,6 +9,16 @@
 ## 清空 Dock
 defaults delete com.apple.dock persistent-apps
 defaults delete com.apple.dock persistent-others
+
+## add Launchpad Application to Dock
+defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>/System/Applications/Launchpad.app</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>'
+defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>/Applications/Google Chrome.app</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>'
+defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>/Applications/Safari.app</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>'
+defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>/Applications/Spotify.app</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>'
+defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>/Applications/iTerm.app</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>'
+defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>/Applications/Evernote.app</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>'
+defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>/Applications/Notion.app</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>'
+
 ## Dock 放到左側
 defaults write com.apple.dock orientation -string "left"
 ## 自動隱藏 Dock
@@ -52,7 +62,7 @@ defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 ## 選單列中的電量顯示百分比
 defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 
-if pmset -g custom | grep -q "displaysleep"; then
+if ! (pmset -g custom | grep -q "displaysleep"); then
     ## 使用電池時，閒置後關閉顯示器的等待時間，單位：分
     sudo pmset -b displaysleep  5
     ## 使用外接電源時，閒置後關閉顯示器的等待時間

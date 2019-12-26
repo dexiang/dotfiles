@@ -11,6 +11,7 @@ WORKSPACE_DIR="${HOME}/workspace"
 cd $INIT_WORKSPACE_DIR
 
 echo -e "${GREEN}===== Installing Command Line Tools... =====${NOCOLOR}"
+
 if ! xcode-select -p &> /dev/null; then
     xcode-select --install
 fi
@@ -47,6 +48,7 @@ brew cask install iterm2 \
     spotify vlc iina vox \
     slack \
     sublime-text \
+    visual-studio-code \
     phpstorm goland \
     sequel-pro \
     sourcetree fork \
