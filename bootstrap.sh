@@ -101,7 +101,7 @@ ssh-keygen -q \
 # dotfiles
 
 ## zsh
-ln -f -s "${PROJECT_DIR}"/dotfiles/zsh/zsh-run-commands "$HOME"/.zshrc
+cp -f "${PROJECT_DIR}"/dotfiles/zsh/zsh-run-commands "$HOME"/.zshrc
 
 ## iTerm2
 ## https://www.iterm2.com/documentation-dynamic-profiles.html
@@ -110,12 +110,12 @@ ITERM2_DYAMIC_PROFILES_FOLDER="${HOME}/Library/Application Support/iTerm2/Dynami
 if [ ! -d "$ITERM2_DYAMIC_PROFILES_FOLDER" ]; then
     mkdir -p "${ITERM2_DYAMIC_PROFILES_FOLDER}"
 fi
-ln -f -s "${PROJECT_DIR}"/dotfiles/iTerm2/profiles.json "${ITERM2_DYAMIC_PROFILES_FOLDER}"/profiles.json
-ln -f -s "${PROJECT_DIR}"/dotfiles/iTerm2/com.googlecode.iterm2.plist "${HOME}"/Library/Preferences
+cp -f "${PROJECT_DIR}"/dotfiles/iTerm2/profiles.json "${ITERM2_DYAMIC_PROFILES_FOLDER}"/profiles.json
+cp -f "${PROJECT_DIR}"/dotfiles/iTerm2/com.googlecode.iterm2.plist "${HOME}"/Library/Preferences
 
 ## Git
-ln -f -s "${PROJECT_DIR}"/dotfiles/git/git-configuration "$HOME"/.gitconfig
-ln -f -s "${PROJECT_DIR}"/dotfiles/git/gitignore "$HOME"/.gitignore
+cp -f "${PROJECT_DIR}"/dotfiles/git/git-configuration "$HOME"/.gitconfig
+cp -f "${PROJECT_DIR}"/dotfiles/git/gitignore "$HOME"/.gitignore
 
 ## sublime
 SUBLIME_MIAN_FOLDER="${HOME}/Library/Application Support/Sublime Text 3"
@@ -129,12 +129,10 @@ if [ ! -d "$SUBLIME_SETTING_FOLDER" ]; then
     mkdir -p "${SUBLIME_SETTING_FOLDER}"
 fi
 cp "${PROJECT_DIR}/dotfiles/sublime/Package Control.sublime-package" "${SUBLIME_INSTALLED_PACKAGES_FOLDER}"
-# ln -f -s "${PROJECT_DIR}"/dotfiles/sublime/Package-Control.sublime-settings "${SUBLIME_SETTING_FOLDER}"/"Package Control.sublime-settings"
-# ln -f -s "${PROJECT_DIR}"/dotfiles/sublime/Preferences.sublime-settings "${SUBLIME_SETTING_FOLDER}"/Preferences.sublime-settings
-ln -f -s "${PROJECT_DIR}"/dotfiles/sublime/* "${SUBLIME_SETTING_FOLDER}"
+cp -f "${PROJECT_DIR}"/dotfiles/sublime/* "${SUBLIME_SETTING_FOLDER}"
 
 ## vim
-ln -f -s "${PROJECT_DIR}"/dotfiles/vim/vimrc "$HOME"/.vimrc
+cp -f "${PROJECT_DIR}"/dotfiles/vim/vimrc "$HOME"/.vimrc
 
 ## ssh
 
