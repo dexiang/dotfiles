@@ -91,12 +91,8 @@ if [ ! -d "$HOME"/.oh-my-zsh/custom/themes/powerlevel9k ]; then
 fi
 
 # Creating an SSH key
-ssh-keygen -q \
-    -b 4096 \
-    -t rsa \
-    -N "" \
-    -C "for sourcetree" \
-    -f "$HOME"/.ssh/id_rsa_for_github
+ssh-keygen -q -t rsa -b 4096 -N "" -C "for GitHub" -f "$HOME"/.ssh/key_for_github
+ssh-keygen -q -t rsa -b 4096 -N "" -C "for GitLab" -f "$HOME"/.ssh/key_for_gitlab
 
 # dotfiles
 
