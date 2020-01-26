@@ -1,9 +1,9 @@
-# --- for Sourcetree ---
-Host dexiang-GitHub
+Host github.com
     HostName github.com
-    User dexiang
     PreferredAuthentications publickey
-    IdentityFile ~/.ssh/id_rsa_for_github_through_sourcetree
-    UseKeychain yes
-    AddKeysToAgent yes
-# ----------------------------
+    IdentityFile ~/.ssh/key_for_github
+
+Host gitlab.com
+    HostName github.com
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/key_for_gitlab
