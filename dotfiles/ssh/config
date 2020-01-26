@@ -4,6 +4,6 @@ Host github.com
     IdentityFile ~/.ssh/key_for_github
 
 Host gitlab.com
-    HostName github.com
+    HostName gitlab.com
     PreferredAuthentications publickey
     IdentityFile ~/.ssh/key_for_gitlab
