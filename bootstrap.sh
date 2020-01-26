@@ -6,7 +6,7 @@ GREEN='\033[0;32m'
 
 PROJECT_DIR=$( cd "$( dirname $0 )" && pwd )
 INIT_WORKSPACE_DIR=$HOME
-WORKSPACE_DIR="${HOME}/workspace"
+WORKSPACE_DIR="${HOME}/Workspace"
 
 cd $INIT_WORKSPACE_DIR
 
@@ -93,6 +93,7 @@ fi
 # Creating an SSH key
 ssh-keygen -q -t rsa -b 4096 -N "" -C "for GitHub" -f "$HOME"/.ssh/key_for_github
 ssh-keygen -q -t rsa -b 4096 -N "" -C "for GitLab" -f "$HOME"/.ssh/key_for_gitlab
+cp -f "${PROJECT_DIR}"/dotfiles/ssh/config "$HOME"/.ssh/config
 
 # dotfiles
 
@@ -125,7 +126,7 @@ if [ ! -d "$SUBLIME_SETTING_FOLDER" ]; then
     mkdir -p "${SUBLIME_SETTING_FOLDER}"
 fi
 cp "${PROJECT_DIR}/dotfiles/sublime/Package Control.sublime-package" "${SUBLIME_INSTALLED_PACKAGES_FOLDER}"
-cp -f "${PROJECT_DIR}"/dotfiles/sublime/* "${SUBLIME_SETTING_FOLDER}"
+cp -R -f "${PROJECT_DIR}"/dotfiles/sublime/* "${SUBLIME_SETTING_FOLDER}"
 
 ## vim
 cp -f "${PROJECT_DIR}"/dotfiles/vim/vimrc "$HOME"/.vimrc
