@@ -37,7 +37,8 @@ brew install zsh bash \
     tig \
     watch \
     ffmpeg media-info \
-    hugo
+    hugo \
+    Graphviz
 
 brew cask install iterm2 \
     google-chrome google-backup-and-sync \
