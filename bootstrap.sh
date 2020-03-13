@@ -38,7 +38,9 @@ brew install zsh bash \
     watch \
     ffmpeg media-info \
     hugo \
-    Graphviz
+    Graphviz \
+    imagemagick \
+    ghostscript
 
 brew cask install iterm2 \
     google-chrome google-backup-and-sync \
